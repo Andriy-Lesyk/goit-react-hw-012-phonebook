@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Div } from './Filter.styles';
+import { Input } from './Filter.styles';
 import { v4 as filterId } from 'uuid';
 
 function Filter({ filter, onChange }) {
