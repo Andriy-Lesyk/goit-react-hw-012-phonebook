@@ -1,8 +1,8 @@
 import React from 'react';
 import { Contacts, Contac, Btn } from './Contacts.styles';
 
-function Contact({ contacts, onDelete }) {
-  console.log(contacts);
+function Contact({ contacts, onDelete })
+{
   return (
     <div>
       <Contacts>
