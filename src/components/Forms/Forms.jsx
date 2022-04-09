@@ -19,7 +19,7 @@ export default class Forms extends Component {
     const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
   };
-  handleNameSubmit = (values, { resetForm}) => {
+  handleNameSubmit = (values, { resetForm }) => {
     this.props.onSubmit(this.state);
     console.log(values);
     resetForm();

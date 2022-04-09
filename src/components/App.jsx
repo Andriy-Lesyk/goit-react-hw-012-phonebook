@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { v4 as uuId } from 'uuid';
-import Forms from "./Forms/Forms"
+import Forms from './Forms/Forms';
 import Filter from './Filter/Filter';
 import Contacts from './Contacts/Contacts';
 
