@@ -12,7 +12,6 @@ function Filter({ filter, onChange }) {
         onChange={onChange}
         type="text"
         name="filter"
-        id={filterId(filter)}
       />
     </div>
   );

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Input, Formm, Btn } from './Forms.styles';
 import PropTypes from 'prop-types';
 
-export default class Forms extends Component {
+export default class Form extends Component {
   state = {
-    contacts: [],
     name: '',
     number: '',
   };
@@ -54,6 +53,6 @@ export default class Forms extends Component {
     );
   }
 }
-Forms.propTypes = {
-  onSubmit: PropTypes.func,
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };

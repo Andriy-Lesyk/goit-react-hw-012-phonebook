@@ -6,12 +6,12 @@ function Contact({ contacts, onDelete }) {
   return (
     <div>
       <Contacts>
-        {contacts.map(contact => (
-          <Contac key={contact.id}>
+        {contacts.map(({name, number, id}) => (
+          <Contac key={id}>
             <span>
-              {contact.name} : {contact.number}
+              {name} : {number}
             </span>
-            <Btn onClick={() => onDelete(contact.id)}>Delete</Btn>
+            <Btn onClick={() => onDelete(id)}>Delete</Btn>
           </Contac>
         ))}
       </Contacts>
@@ -19,13 +19,13 @@ function Contact({ contacts, onDelete }) {
   );
 }
 
-Contacts.propTypes = {
-  onDelete: PropTypes.func,
+Contact.propTypes = {
+  onDelete: PropTypes.func.isRequired,
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      number: PropTypes.number.isRequired,
+      number: PropTypes.string.isRequired,
     })
   ),
 };

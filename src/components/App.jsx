@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { v4 as uuId } from 'uuid';
-import Forms from './Forms/Forms';
+import Form from './Forms/Forms';
 import Filter from './Filter/Filter';
 import Contacts from './Contacts/Contacts';
 
@@ -15,11 +15,11 @@ export default class App extends Component {
     filter: '',
   };
 
-  keyId = uuId();
+  
   formSubmitHandler = ({ name, number }) => {
     const id = uuId();
     const contCheck = this.state.contacts.find(
-      contact => contact.name === name
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     contCheck
       ? alert(`${name} is olready in contacts`)
@@ -33,23 +33,24 @@ export default class App extends Component {
     }));
   };
   changeFilter = e => {
-    this.setState({ filter: e.currentTarget.value });
+    this.setState({ filter: e.currentTarget.value.toLowerCase() });
   };
   render() {
+    const { filter, contacts}= this.state
     return (
       <div>
         <h1>Phonebook</h1>
-        <Forms onSubmit={this.formSubmitHandler} />
-        <Filter filter={this.state.filter} onChange={this.changeFilter} />
+        <Form onSubmit={this.formSubmitHandler} />
+        <Filter filter={filter} onChange={this.changeFilter} />
         <h2>Contacts</h2>
         <Contacts
           id={this.keyId}
           onDelete={this.deleteContact}
           contacts={
-            this.state.filter === ''
-              ? this.state.contacts
-              : this.state.contacts.filter(cont =>
-                  cont.name.toLowerCase().includes(this.state.filter)
+            filter === ''
+              ? contacts
+              : contacts.filter(cont =>
+                  cont.name.toLowerCase().includes(filter)
                 )
           }
         />
