@@ -3,6 +3,7 @@ import { v4 as uuId } from 'uuid';
 import Form from './Forms/Forms';
 import Filter from './Filter/Filter';
 import Contacts from './Contacts/Contacts';
+import Contact from './Contacts/Contacts';
 
 export default class App extends Component {
   state = {
@@ -33,7 +34,7 @@ export default class App extends Component {
     }));
   };
   changeFilter = e => {
-    this.setState({ filter: e.currentTarget.value.toLowerCase() });
+    this.setState({ filter: e.currentTarget.value });
   };
   render() {
     const { filter, contacts}= this.state
@@ -43,14 +44,13 @@ export default class App extends Component {
         <Form onSubmit={this.formSubmitHandler} />
         <Filter filter={filter} onChange={this.changeFilter} />
         <h2>Contacts</h2>
-        <Contacts
-          id={this.keyId}
+        <Contact
           onDelete={this.deleteContact}
           contacts={
             filter === ''
               ? contacts
               : contacts.filter(cont =>
-                  cont.name.toLowerCase().includes(filter)
+                  cont.name.toLowerCase().includes(filter.toLowerCase())
                 )
           }
         />
