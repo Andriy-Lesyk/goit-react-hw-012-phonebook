@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { v4 as uuId } from 'uuid';
 import Form from './Forms/Forms';
 import Filter from './Filter/Filter';
-import Contacts from './Contacts/Contacts';
 import Contact from './Contacts/Contacts';
 
 export default class App extends Component {
